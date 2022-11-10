@@ -17,9 +17,7 @@ import java.io.IOException;
 @WebServlet(name = "login", urlPatterns = {"/login"} )
 public class Login extends HttpServlet
 {
-    //Hej tutor
-    //ruaeirueab
-    //rebaureauy
+
     private ConnectionPool connectionPool;
 
     @Override
