@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `cupcake2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `cupcake2`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cupcake2
@@ -28,7 +30,7 @@ CREATE TABLE `bottom` (
                           `price` int NOT NULL,
                           PRIMARY KEY (`bottom_id`),
                           UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +39,7 @@ CREATE TABLE `bottom` (
 
 LOCK TABLES `bottom` WRITE;
 /*!40000 ALTER TABLE `bottom` DISABLE KEYS */;
-INSERT INTO `bottom` VALUES (1,'Chocolate',5),(2,'Vanilla',5),(3,'Nutmeg',5),(4,'Pistacio',6),(5,'Almond',7);
+INSERT INTO `bottom` VALUES (1,'Chocolate',5),(2,'Vanilla',5),(3,'orange',10);
 /*!40000 ALTER TABLE `bottom` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +93,7 @@ CREATE TABLE `cream` (
                          `price` int NOT NULL,
                          PRIMARY KEY (`cream_id`),
                          UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +102,7 @@ CREATE TABLE `cream` (
 
 LOCK TABLES `cream` WRITE;
 /*!40000 ALTER TABLE `cream` DISABLE KEYS */;
-INSERT INTO `cream` VALUES (1,'Chocolate',5),(2,'Blueberry',5),(3,'Raspberry',5),(4,'Crispy',6),(5,'Strawberry',6),(6,'Rum/Raisin',7),(7,'Orange',8),(8,'Lemon',8),(9,'Blue cheese',9);
+INSERT INTO `cream` VALUES (1,'Chocolate',5),(2,'Vanilla',5),(3,'orange',15),(4,'strawberry',25);
 /*!40000 ALTER TABLE `cream` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,8 +144,10 @@ CREATE TABLE `top` (
                        `top_id` int NOT NULL AUTO_INCREMENT,
                        `name` varchar(45) NOT NULL,
                        `price` int NOT NULL,
-                       PRIMARY KEY (`top_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                       PRIMARY KEY (`top_id`),
+                       UNIQUE KEY `name_UNIQUE` (`name`),
+                       UNIQUE KEY `price_UNIQUE` (`price`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +156,7 @@ CREATE TABLE `top` (
 
 LOCK TABLES `top` WRITE;
 /*!40000 ALTER TABLE `top` DISABLE KEYS */;
-INSERT INTO `top` VALUES (1,'Chocolate',5),(2,'Blueberry',5),(3,'Raspberry',5),(4,'Crispy',6),(5,'Orange',8),(6,'Lemon',8),(7,'Blue cheese',9);
+INSERT INTO `top` VALUES (1,'Chocolate',5),(2,'skinke',100),(3,'vanilla',125),(4,'orange',142);
 /*!40000 ALTER TABLE `top` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +183,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('Admin','4147','Admin',4127),('mayas','6465','user',1124),('Mohammed','5471','user',1125),('William','2545','user',4125);
+INSERT INTO `user` VALUES ('mayas','6465','user',1124);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -192,6 +196,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-10  9:56:31
-
+-- Dump completed on 2022-11-09 13:55:18
 
