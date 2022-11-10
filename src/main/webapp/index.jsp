@@ -17,6 +17,10 @@
       <p>Log venligst på systemet først</p>
         <p>Der efter kan du shoppe løs</p>
 
+        <form action="login.jsp" method="post">
+        <button type="submit">Login</button>
+        </form>
+
     </jsp:body>
 
 </t:pagetemplate>

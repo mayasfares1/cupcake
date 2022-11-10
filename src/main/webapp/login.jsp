@@ -18,8 +18,8 @@
         <h3>You can log in here</h3>
 
         <form action="login" method="post">
-            <label for="username">Email: </label>
-            <input type="text" id="username" name="username"/>
+            <label for="Email">Email: </label>
+            <input type="Email" id="Email" name="username"/>
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
             <input type="submit"  value="Log in"/>
