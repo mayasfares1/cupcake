@@ -21,12 +21,13 @@ public class ShoppingCart
         return cupcakeList.size();
     }
 
-    public void setCupcakeList(List<Cupcake> cupcakeList) {
-        this.cupcakeList = cupcakeList;
-    }
-
     public List<Cupcake> getCupcakeList()
     {
         return cupcakeList;
+    }
+
+    public void resetCart()
+    {
+        cupcakeList.clear();
     }
 }

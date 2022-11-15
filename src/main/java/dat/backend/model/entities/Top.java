@@ -4,9 +4,9 @@ public class Top
 {
     private int top_id;
     private String name;
-    private int price;
+    private double price;
 
-    public Top(int top_id, String name, int price) {
+    public Top(int top_id, String name, double price) {
         this.top_id = top_id;
         this.name = name;
         this.price = price;
@@ -20,7 +20,7 @@ public class Top
         return name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }

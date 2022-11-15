@@ -1,58 +1,50 @@
 package dat.backend.model.entities;
 
-public class Cupcake {
+import dat.backend.control.Order;
 
-    private int top_id;
-    private int bottom_id;
-    private int cream_id;
-    private int quantity_id;
+public class Cupcake extends Order {
 
-    public Cupcake(int top_id, int bottom_id, int cream_id, int quantity_id) {
-        this.top_id = top_id;
-        this.bottom_id = bottom_id;
-        this.cream_id = cream_id;
-        this.quantity_id = quantity_id;
+    private Top top;
+    private Bottom bottom;
+    private Cream cream;
+    private int quantity;
+
+    public Cupcake(Top top, Bottom bottom, Cream cream, int quantity) {
+        this.top = top;
+        this.bottom = bottom;
+        this.cream = cream;
+        this.quantity = quantity;
     }
 
-    public int getTop_id() {
-        return top_id;
+    public Top getTop() {
+        return top;
     }
 
-    public int getBottom_id() {
-        return bottom_id;
+    public void setTop(Top top) {
+        this.top = top;
     }
 
-    public int getCream_id() {
-        return cream_id;
+    public Bottom getBottom() {
+        return bottom;
     }
 
-    public int getQuantity_id() {
-        return quantity_id;
+    public void setBottom(Bottom bottom) {
+        this.bottom = bottom;
     }
 
-    public void setTop_id(int top_id) {
-        this.top_id = top_id;
+    public Cream getCream() {
+        return cream;
     }
 
-    public void setBottom_id(int bottom_id) {
-        this.bottom_id = bottom_id;
+    public void setCream(Cream cream) {
+        this.cream = cream;
     }
 
-    public void setCream_id(int cream_id) {
-        this.cream_id = cream_id;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuantity_id(int quantity_id) {
-        this.quantity_id = quantity_id;
-    }
-
-    @Override
-    public String toString() {
-        return "Cupcake{" +
-                "top_id=" + top_id +
-                ", bottom_id=" + bottom_id +
-                ", cream_id=" + cream_id +
-                ", quantity_id=" + quantity_id +
-                '}';
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

@@ -4,17 +4,25 @@ import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.*;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeFacade;
+import dat.backend.model.persistence.CupcakeMapper;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "AddToCart", value = "/addtocart")
 public class AddToCart extends HttpServlet
 {
-    public static ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
+    private ConnectionPool connectionPool;
+
     @Override
+    public void init() throws ServletException
+    {
+        this.connectionPool = ApplicationStart.getConnectionPool();
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
@@ -31,20 +39,19 @@ public class AddToCart extends HttpServlet
         int cream_id = Integer.parseInt(request.getParameter("cream"));
         int quantity_id = Integer.parseInt(request.getParameter("quantity"));
 
-//        User user = UserFacade.login(username, password, connectionPool);
 
-        Cupcake cupcake = new Cupcake(top_id,bottom_id,cream_id,quantity_id);
+        Top top = CupcakeFacade.getTopById(top_id,connectionPool);
+        Bottom bottom = CupcakeFacade.getBottomById(bottom_id, connectionPool);
+        Cream cream = CupcakeFacade.getCreamById(cream_id, connectionPool);
 
+        Cupcake cupcake = new Cupcake(top,bottom,cream,quantity_id);
         cart.add(cupcake);
         session.setAttribute("cart",cart);
         request.setAttribute("cartsize",cart.getNumberOfCupcakes());
-        request.setAttribute("cupcake", cupcake);
 
 
 
        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
-
-
 
 
     }

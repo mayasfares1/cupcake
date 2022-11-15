@@ -4,9 +4,9 @@ public class Bottom
 {
     private int bottom_id;
     private String name;
-    private int price;
+    private double price;
 
-    public Bottom(int bottom_id, String name, int price) {
+    public Bottom(int bottom_id, String name, double price) {
         this.bottom_id = bottom_id;
         this.name = name;
         this.price = price;
@@ -20,7 +20,7 @@ public class Bottom
         return name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }
