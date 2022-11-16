@@ -21,6 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
+
                 <img src="${pageContext.request.contextPath}/images/cupcake.png" height="190"  class="img-fluid"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -29,12 +30,13 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                     <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/CreatUser.jsp">CreatUser</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/createUsername.jsp">createUser</a>
                     </li>
                     <li class="nav-item">
                         <c:if test="${sessionScope.user == null}">
@@ -45,6 +47,7 @@
                         </c:if>
                     </li>
                     <li class="nav-item">
+
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>
@@ -97,4 +100,4 @@
         crossorigin="anonymous"></script>
 
 </body>
-</html>
+ </html>

@@ -7,9 +7,13 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class UserMapper
+public class UserMapper
 {
-    static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException
+    static ConnectionPool connectionPool;
+    public UserMapper(ConnectionPool connectionPool){
+        this.connectionPool = connectionPool;
+    }
+    public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
 
@@ -26,8 +30,14 @@ class UserMapper
                 ResultSet rs = ps.executeQuery();
                 if (rs.next())
                 {
+<<<<<<< HEAD
+                    String role = rs.getString("role");
+                    int balance = rs.getInt("balance");
+                    user = new User(username, password, role, balance);
+=======
                     String role = rs.getString("userrole");
                     user = new User(username, password, role);
+>>>>>>> ead4c3b42051e5111373f0fa8b450ded1063db1c
                 } else
                 {
                     throw new DatabaseException("Wrong username or password");
@@ -41,26 +51,36 @@ class UserMapper
         return user;
     }
 
+<<<<<<< HEAD
+    public static User createUser(String username, String password, String role, int balance) throws DatabaseException
+    {
+        Logger.getLogger("web").log(Level.INFO, "");
+        User user;
+        String sql = "insert into user(username, password, userrole, balance) values (?,?,?,?)";
+=======
     static User createUser(String username, String password, String userrole, ConnectionPool connectionPool) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
         String sql = "insert into user (username, password, userrole) values (?,?,?)";
+>>>>>>> ead4c3b42051e5111373f0fa8b450ded1063db1c
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
                 ps.setString(1, username);
                 ps.setString(2, password);
-                ps.setString(3, userrole);
+                ps.setString(3, role);
+                ps.setInt(4, balance);
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1)
                 {
-                    user = new User(username, password, userrole);
+                    user = new User(username, password, role, balance);
                 } else
                 {
                     throw new DatabaseException("The user with username = " + username + " could not be inserted into the database");
                 }
+
             }
         }
         catch (SQLException ex)
