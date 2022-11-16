@@ -41,6 +41,8 @@ public class AddToCart extends HttpServlet
 
 
         Top top = CupcakeFacade.getTopById(top_id,connectionPool);
+        log("top er" + top);
+        log("topid er " + top_id);
         Bottom bottom = CupcakeFacade.getBottomById(bottom_id, connectionPool);
         Cream cream = CupcakeFacade.getCreamById(cream_id, connectionPool);
 

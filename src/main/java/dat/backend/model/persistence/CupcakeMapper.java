@@ -12,7 +12,7 @@ public class CupcakeMapper {
 
     public static Top getTopById(int top_id, ConnectionPool connectionPool)
     {
-        String sql = "SELECT * FROM cupcake2.top where top_id like = ? ";
+        String sql = "SELECT * FROM cupcake2.top where top_id = ? ";
 
         try (Connection connection = connectionPool.getConnection())
         {
@@ -22,6 +22,8 @@ public class CupcakeMapper {
                 if (rs.next()) {
                     String name = rs.getString("name");
                     double price = rs.getDouble("price");
+                    System.out.println(name);
+                    System.out.println(price);
                     Top newTop = new Top(top_id, name, price);
                     return newTop;
                 } else {
@@ -40,7 +42,7 @@ public class CupcakeMapper {
     public static Bottom getBottomById(int bottom_id, ConnectionPool connectionPool)
     {
 
-        String sql = "SELECT * FROM cupcake2.bottom where bottom_id like = ? ";
+        String sql = "SELECT * FROM cupcake2.bottom where bottom_id  = ? ";
 
         try (Connection connection = connectionPool.getConnection())
         {
@@ -52,6 +54,7 @@ public class CupcakeMapper {
                     String name = rs.getString("name");
                     double price = rs.getDouble("price");
                     Bottom newBottom = new Bottom(bottom_id, name, price);
+                    System.out.println("her er vores kage" +  newBottom.getName());
                     return newBottom;
                 }
                 else
@@ -71,7 +74,7 @@ public class CupcakeMapper {
 
     public static Cream getCreamById(int cream_id, ConnectionPool connectionPool)
     {
-        String sql = "SELECT * FROM cupcake2.cream where cream_id like = ?";
+        String sql = "SELECT * FROM cupcake2.cream where cream_id = ?";
 
         try (Connection connection = connectionPool.getConnection())
         {
@@ -204,9 +207,7 @@ public class CupcakeMapper {
 
     public static void insertOrderLines(int order_Id, ShoppingCart cart, ConnectionPool connectionPool)
     {
-        String sql = "insert into order_lines (" +
-                "(order_id, top_id, bottom_id, cream_id, " +
-                "top_price, bottom_price, cream_price,amount ) value (?,?,?,?,?,?,?,?)";
+        String sql = "insert into order_lines (order_Id, top_id, bottom_id, cream_id,top_price, bottom_price, cream_price, amount) value (?,?,?,?,?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection())
         {

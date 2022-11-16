@@ -46,14 +46,22 @@
         <br><br>
 
         Indhold i kurv:
-        <c:forEach var="items" items="${sessionScope.cart.cupcakeList}">
+        <br>
+        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
 
-            TopId: ${items.top.top_id} Name: ${items.top.name} Price: ${items.top.price}<br><br>
-<%--            BottomId: ${item.bottom.bottom_id} Name: ${item.bottom.name} Price: ${item.bottom.price}--%>
-<%--            CreamId: ${item.cream.cream_id} Name: ${item.cream.name} Price: ${item.cream.price}--%>
-            Antal: ${items.quantity}
+            TopId: ${item.top.top_id} Name: ${item.top.name} Price: ${item.top.price} kr
+            <br>
+            BottomId: ${item.bottom.bottom_id} Name: ${item.bottom.name} Price: ${item.bottom.price} kr
+            <br>
+            CreamId: ${item.cream.cream_id} Name: ${item.cream.name} Price: ${item.cream.price} kr
+            <br>
+            Antal: ${item.quantity}
 
         </c:forEach>
+
+        <form action="order">
+            <a href="order">Bestil</a>
+        </form>
 
 <br><br><br>
 
