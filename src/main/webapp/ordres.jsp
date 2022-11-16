@@ -14,11 +14,16 @@
 
     <jsp:body>
 
-      <p>Log venligst på systemet først</p>
-        <p>Der efter kan du shoppe løs</p>
+        <p>Her kan du betal for dine vare</p>
 
-        <form action="login.jsp" method="post">
-        <button type="submit">Login</button>
+        <form action="Order" method="post">
+
+            <button type="submit">Pay</button>
+        </form>
+
+        <p>Hent i butiken</p>
+        <form action="#" method="post">
+            <button type="submit">Afhent selv</button>
         </form>
 
     </jsp:body>

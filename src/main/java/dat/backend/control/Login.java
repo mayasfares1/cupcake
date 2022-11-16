@@ -1,8 +1,9 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
-import dat.backend.model.entities.User;
+import dat.backend.model.entities.*;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
 
@@ -13,10 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(name = "login", urlPatterns = {"/login"} )
 public class Login extends HttpServlet
 {
+
     private ConnectionPool connectionPool;
 
     @Override
@@ -39,14 +43,27 @@ public class Login extends HttpServlet
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
         try
         {
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
+            ShoppingCart cart = new ShoppingCart();
+            session.setAttribute("cart", cart);
+
+            List<Top> topList = CupcakeFacade.getAllToppings(connectionPool);
+            List<Bottom> bottomList = CupcakeFacade.getAllBottoms(connectionPool);
+            List<Cream> creamList = CupcakeFacade.getAllCreams(connectionPool);
+            session.setAttribute("topList", topList);
+            session.setAttribute("bottomList", bottomList);
+            session.setAttribute("creamList", creamList);
+
+
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+
         }
-        catch (DatabaseException e)
+        catch (DatabaseException | SQLException e)
         {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

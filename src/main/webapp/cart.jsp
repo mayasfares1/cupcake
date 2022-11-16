@@ -14,11 +14,17 @@
 
     <jsp:body>
 
-      <p>Log venligst på systemet først</p>
-        <p>Der efter kan du shoppe løs</p>
+        <p>Welcomen til kurven</p>
+        <p>Her kan du se det du har købt..</p>
 
-        <form action="login.jsp" method="post">
-        <button type="submit">Login</button>
+                <c:forEach var="items" items="${sessionScope.cart.cupcakeList}">
+                    TopId: ${items.top.top_id} Name: ${items.top.name} Price: ${items.top.price}
+                    Antal: ${items.quantity}
+
+                </c:forEach>
+
+        <form action="order" method="post">
+            <button type="submit">Pay</button>
         </form>
 
     </jsp:body>

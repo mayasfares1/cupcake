@@ -21,24 +21,41 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/c   " width="400px;" class="img-fluid"/>
+
+                <img src="${pageContext.request.contextPath}/images/cupcake.png" height="190"  class="img-fluid"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 1</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 2</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/createUsername.jsp">createUser</a>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/createUsername.jsp">createUser</a>
+                    </li>
+                    <li class="nav-item">
+                        <c:if test="${sessionScope.user == null}">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">About</a>
+                        </c:if>
+                        <c:if test="${sessionScope.user != null}">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/ordres.jsp">Ordre</a>
+                        </c:if>
+                    </li>
+                    <li class="nav-item">
+
                     <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -50,24 +67,30 @@
 </div>
 
 <!-- Footer -->
-<div class="container mt-3">
-    <hr/>
-    <div class="row mt-4">
-        <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
-        </div>
-        <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
-            <p>&copy; 2022 Cphbusiness</p>
-        </div>
-        <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester efterår 2022
-        </div>
-    </div>
 
-</div>
+
+    <div class="row border-top border-primary pt-4">
+        <div class="col">
+            <ul>
+                <li>Opening Hours:</li>
+                <li>Monday-friday: 8am-6pm</li>
+                <li>Saturday-Sundag: 10am-2pm</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li>Adresse:</li>
+                <li>Nørgaardsvej 30</li>
+                <li>2800 Kongens Lyngby</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li>TLF AND EMAIL</li>
+                <li>36154504</li>
+                <li>Kontakt@cphbusiness.dk</li>
+            </ul>
+        </div>
 
 </div>
 

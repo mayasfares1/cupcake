@@ -8,6 +8,10 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <basket-file-list>
+        <basket-file>basket.jsp</basket-file>
+    </basket-file-list>
+
     <error-page>
         <error-code>404</error-code>
         <location>/error.jsp</location>
