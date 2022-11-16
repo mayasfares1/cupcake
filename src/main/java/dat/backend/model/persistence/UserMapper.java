@@ -66,6 +66,7 @@ public class UserMapper
                 {
                     throw new DatabaseException("The user with username = " + username + " could not be inserted into the database");
                 }
+
             }
         }
         catch (SQLException ex)

@@ -42,6 +42,7 @@ public class CreateUser extends HttpServlet {
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
 
