@@ -5,7 +5,7 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Welcome : ${sessionScope.user.role}
+         Welcome : ${sessionScope.user.username}
 
     </jsp:attribute>
 
@@ -59,9 +59,6 @@
 
         </c:forEach>
 
-        <form action="order">
-            <a href="order">Bestil</a>
-        </form>
 
 <br><br><br>
 
@@ -69,18 +66,18 @@
             <hr/>
             <div class="row mt-4">
                 <div class="col">
-                    <form action="order" method="post">
-                        <button name="Order">OrderNow</button>
+                    <form action="order">
+                        <button name="order">Bestil</button>
                     </form>
                 </div>
                 <div class="col">
-                    <form action="cart" method="post">
+                    <form action="cart.jsp" method="post">
                         <button name="SeeCart">See Cart</button>
                     </form>
                 </div>
                 <div class="col">
-                    <form action="order" method="post">
-                        <button name="Pay">PayNow</button>
+                    <form action="order">
+                        <button name="order">Bestil</button>
                     </form>
                 </div>
             </div>
@@ -99,7 +96,7 @@
     <div class="container mt-6">
 
         <c:if test="${sessionScope.user != null}">
-            <p>Your user name is ${sessionScope.user.role}</p>
+            <p>Your user name is ${sessionScope.user.username}</p>
         </c:if>
 
     </div>

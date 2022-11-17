@@ -15,17 +15,37 @@
     <jsp:body>
 
         <p>Welcomen til kurven</p>
-        <p>Her kan du se det du har købt..</p>
+        <p>Here is your orders</p>
 
-                <c:forEach var="items" items="${sessionScope.cart.cupcakeList}">
-                    TopId: ${items.top.top_id} Name: ${items.top.name} Price: ${items.top.price}
-                    Antal: ${items.quantity}
+        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
 
-                </c:forEach>
+            TopId: ${item.top.top_id} Name: ${item.top.name} Price: ${item.top.price} kr
+            <br>
+            BottomId: ${item.bottom.bottom_id} Name: ${item.bottom.name} Price: ${item.bottom.price} kr
+            <br>
+            CreamId: ${item.cream.cream_id} Name: ${item.cream.name} Price: ${item.cream.price} kr
+            <br>
+            Antal: ${item.quantity}
 
-        <form action="order" method="post">
-            <button type="submit">Pay</button>
-        </form>
+        </c:forEach>
+
+        <div class="container mt-3">
+            <hr/>
+            <div class="row mt-4">
+                <div class="col">
+                    <form action="order">
+                        <button name="order">Bestil</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="welcome">
+                        <button name="Back">Back</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+
 
     </jsp:body>
 

@@ -36,18 +36,14 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/createUsername.jsp">createUser</a>
-                    </li>
-                    <li class="nav-item">
                         <c:if test="${sessionScope.user == null}">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">About</a>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/createUsername.jsp">createUser</a>
                         </c:if>
-                        <c:if test="${sessionScope.user != null}">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/ordres.jsp">Ordre</a>
-                        </c:if>
+                            <c:if test="${sessionScope.user != null}">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/cart.jsp">Ordres</a>
+                            </c:if>
                     </li>
                     <li class="nav-item">
-
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     </c:if>

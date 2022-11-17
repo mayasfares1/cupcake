@@ -52,12 +52,14 @@ public class Login extends HttpServlet
             ShoppingCart cart = new ShoppingCart();
             session.setAttribute("cart", cart);
 
+
             List<Top> topList = CupcakeFacade.getAllToppings(connectionPool);
             List<Bottom> bottomList = CupcakeFacade.getAllBottoms(connectionPool);
             List<Cream> creamList = CupcakeFacade.getAllCreams(connectionPool);
             session.setAttribute("topList", topList);
             session.setAttribute("bottomList", bottomList);
             session.setAttribute("creamList", creamList);
+
 
 
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);

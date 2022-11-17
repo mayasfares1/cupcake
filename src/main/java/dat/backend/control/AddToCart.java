@@ -5,6 +5,7 @@ import dat.backend.model.entities.*;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.CupcakeMapper;
+import dat.backend.model.persistence.UserFacade;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -33,7 +34,7 @@ public class AddToCart extends HttpServlet
     {
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-
+        User user = (User) session.getAttribute("user");
         int top_id = Integer.parseInt(request.getParameter("top"));
         int bottom_id = Integer.parseInt(request.getParameter("bottom"));
         int cream_id = Integer.parseInt(request.getParameter("cream"));
