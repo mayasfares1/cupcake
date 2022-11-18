@@ -30,19 +30,10 @@ public class UserMapper
                 ResultSet rs = ps.executeQuery();
                 if (rs.next())
                 {
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 5fa86ef084f29933107bbab9c077d52cae6d4389
                     String role = rs.getString("userrole");
                     int balance = rs.getInt("balance");
                     user = new User(username, password, role, balance);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5fa86ef084f29933107bbab9c077d52cae6d4389
                 } else
                 {
                     throw new DatabaseException("Wrong username or password");
@@ -56,10 +47,7 @@ public class UserMapper
         return user;
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5fa86ef084f29933107bbab9c077d52cae6d4389
     public static User createUser(String username, String password, String role, int balance) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
